@@ -17,7 +17,7 @@ export class ResizeWindow extends HTMLElement {
                 }
                     .window > .content {
                         background: #fff;
-                        border-radius: 5px;
+                        border-radius: 2px;
                         flex: auto;
                         display:flex;
                         flex-direction:column;
@@ -28,8 +28,7 @@ export class ResizeWindow extends HTMLElement {
 
                     .window > .resizer {
                         width: 5px;
-                        margin: 5px 0px 5px 3px;
-                        border-radius: 10px;
+                        margin: 0px;
                         transition: background 0.25s;
                     }
                         .window > .resizer:hover {

@@ -5,6 +5,7 @@ export class BrowserWindow extends HTMLElement {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = `
+            <link rel="stylesheet" href="assets/iconmonstr-iconic/css/iconmonstr-iconic-font.min.css"/>
             <style>
                 .win_outer {
                     display:flex;
@@ -14,8 +15,8 @@ export class BrowserWindow extends HTMLElement {
                 .navbar {
                     width: 100%;
                     height: 35px;
-                    background-color: #07064D;
-                    border-radius: 5px 5px 0 0;
+                    background: #15427D;
+                    border-radius: 2px 2px 0 0;
                     display: flex;
                     flex-direction: row;
                 }
@@ -27,6 +28,9 @@ export class BrowserWindow extends HTMLElement {
                         outline: none;
                         color: #fff;
                     }
+                        .navbar > .btn > i {
+                            font-size: 12px;
+                        }
                         .navbar > .btn:not(.hidden):hover{
                             background: rgb(255 255 255 / 35%);
                         }      
@@ -40,14 +44,14 @@ export class BrowserWindow extends HTMLElement {
             </style>
             <div class='win_outer'>
                 <div class="navbar">
-                    <button id="back" class="btn back"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button id="refresh" class="btn refresh"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></button>
-                    <button id="forward" class="btn forward"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <button id="back" class="btn back"><i class="im im-angle-left"></i></button>
+                    <button id="refresh" class="btn refresh"><i class="im im-redo"></i></button>
+                    <button id="forward" class="btn forward"><i class="im im-angle-right"></i></button>
                     <div class="center">
                     </div>
                     <button class="btn hidden"></button>
                     <button class="btn hidden"></button>
-                    <button id="close" class="btn close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+                    <button id="close" class="btn close"><i class="im im-x-mark"></i></button>
                 </div>
                 <webview class="view" src="https://www.google.com/">
                 </webview>

@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Multiview</title>
     <link rel="stylesheet" href="scaffold.css"/>
+    <link rel="stylesheet" href="assets/iconmonstr-iconic/css/iconmonstr-iconic-font.min.css"/>
 </head>
 <body>
-    <div class="titlebar">
-        <frame-controls></frame-controls>
-    </div>
     <div class="appOuter">
+        <div class="titlebar">
+            <frame-controls></frame-controls>
+        </div>
         <div class="tabbar">
+            <button id="AddTabBtn" class="addbtn"><i class="im im-plus"></i></button>
             <div id="TabList" class="tablist">
-                <template><div class="tab"><img src="assets/favicon_default.png"/></div></template>
+                <template><div class="tab"><img src="assets/images/favicon_default.png"/></div></template>
             </div>
-            <button id="AddTabBtn" class="addbtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+            <button class="settings"><i class="im im-gear"></i></button>
         </div>
         <div id="ContentContainer" class="container">
             <template><!--

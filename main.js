@@ -10,9 +10,7 @@ function createWindow () {
     frame: false,
     titleBarStyle: 'hidden',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      enableRemoteModule: true,
-      nodeIntegration: true,
+      preload: 'src/main/preload.js',
       webviewTag: true
     },
     darkTheme: true
@@ -20,7 +18,7 @@ function createWindow () {
 
   mainWindow.setMenu(null);
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('src/renderer/index.html')
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
