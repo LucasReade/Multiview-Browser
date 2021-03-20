@@ -27,7 +27,7 @@ export class ResizeWindow extends HTMLElement {
                         }
 
                     .window > .resizer {
-                        width: 5px;
+                        width: 7px;
                         margin: 0px;
                         transition: background 0.25s;
                     }
@@ -44,7 +44,7 @@ export class ResizeWindow extends HTMLElement {
             </div>
         `;
         
-        const BORDER_SIZE = 5;
+        const BORDER_SIZE = 7;
         let m_pos;
         const resizeBar = this.shadowRoot.querySelector('.resizer');
         const windowDiv = this.shadowRoot.querySelector('.window');

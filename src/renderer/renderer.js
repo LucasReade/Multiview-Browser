@@ -46,5 +46,4 @@ tc.on('tab-selected', (tab, content) => {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     tc.addTab();
-
 });

@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const { ipcMain } = require('electron')
 
 function createWindow () {
   // Create the browser window.
@@ -8,12 +9,11 @@ function createWindow () {
     width: 1280,
     height: 900,
     frame: false,
-    titleBarStyle: 'hidden',
+    titleBarStyle: 'hiddenInset',
     webPreferences: {
-      preload: 'src/main/preload.js',
+      preload: path.join(__dirname, 'src/main/preload.js'),
       webviewTag: true
-    },
-    darkTheme: true
+    }
   })
 
   mainWindow.setMenu(null);
@@ -22,6 +22,18 @@ function createWindow () {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
+
+  ipcMain.on('minimize', (event, arg) => {mainWindow.minimize()});
+  ipcMain.on('restore', (event, arg) => {mainWindow.restore()});
+  ipcMain.on('maximize', (event, arg) => {mainWindow.maximize()});
+  ipcMain.on('close', (event, arg) => {mainWindow.close()});
+  ipcMain.on('isMaximized', (event, arg) => {
+    event.reply('isMaximized', mainWindow.isMaximized());
+  });
+
+  mainWindow.on('resize', () => {
+    mainWindow.webContents.send('isMaximized', mainWindow.isMaximized());
+  });
 }
 
 // This method will be called when Electron has finished
